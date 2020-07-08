@@ -34,6 +34,16 @@
       "name": "Cap",
       "price": 600,
       "id": 7
+    },
+    {
+      "name": "Juice of orange",
+      "price": 100,
+      "id": 8
+    },
+    {
+      "name": "Juice of carrot",
+      "price": 80,
+      "id": 9
     }
   ]
 }
