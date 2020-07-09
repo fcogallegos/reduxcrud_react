@@ -2,8 +2,8 @@
   "products": [
     {
       "id": 2,
-      "name": "Jugo de Naranja",
-      "price": "1"
+      "name": "Juice of Orange",
+      "price": "130"
     },
     {
       "name": "Jugo de Fresa",
@@ -11,8 +11,8 @@
       "id": 5
     },
     {
-      "name": "Cap",
-      "price": 600,
+      "name": "Cap Style Modern",
+      "price": "1200",
       "id": 7
     },
     {

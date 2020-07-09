@@ -39,7 +39,8 @@ export default function(state = initialState, action) {
             }  
         case ADD_PRODUCT_ERROR:
         case DOWNLOAD_PRODUCTS_ERROR:
-        case PRODUCT_REMOVED_ERROR:      
+        case PRODUCT_REMOVED_ERROR:
+        case PRODUCT_EDITED_ERROR:      
             return {
                 ...state,
                 loading: false,
@@ -67,7 +68,15 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 editproduct: action.payload
-            }             
+            }
+        case PRODUCT_EDITED_SUCCESS:
+            return {
+                ...state,
+                editproduct: null,
+                products: state.products.map( product => 
+                    product.id === action.payload.id ? product = action.payload : product
+                )
+            }                  
         default: 
             return state;
     }
