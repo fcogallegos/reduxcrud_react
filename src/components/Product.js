@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 //Redux
 import { useDispatch } from 'react-redux';
-import { removeProductAction } from '../actions/productActions';
+import { removeProductAction, getProductEdit } from '../actions/productActions';
 
 const Product = ({product}) => {
     const { name, price, id } = product;
@@ -34,6 +34,7 @@ const Product = ({product}) => {
 
     //function that redirect of program form
     const redirectEdition = product => {
+        dispatch( getProductEdit(product) );
         history.push(`/products/edit/${product.id}`)
     }
 
