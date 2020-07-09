@@ -103,8 +103,16 @@ export function removeProductAction(id) {
         try {
             await clientAxios.delete(`/products/${id}`);
             dispatch( removeProductSuccess() );
-        } catch (error) {
-            
+
+            //if is removed it, show alert 
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+        } catch (error) {   
+            console.log(error);
+            dispatch( removeProductError() );
         }
     }
 }

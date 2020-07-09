@@ -6,19 +6,9 @@
       "price": "1"
     },
     {
-      "name": "Jugo de Naranja",
-      "price": "300",
-      "id": 3
-    },
-    {
       "name": "Jugo de Fresa",
       "price": "200",
       "id": 5
-    },
-    {
-      "name": "Vodka",
-      "price": 1200,
-      "id": 6
     },
     {
       "name": "Cap",
