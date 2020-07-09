@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editProductAction } from '../actions/productActions';
 
 const EditProduct = () => {
 
+    //new state of product
+    const [ product, saveProduct ] = useState({
+        name: '',
+        price: ''
+    });
 
     //product to edit
-    const product = useSelector(state => state.products.editproduct);
-    if(!product) return null;
+    const productedit = useSelector(state => state.products.editproduct);
+    
+
+    //fulling the state automatically
+    useEffect( () => {
+        saveProduct( productedit );
+    }, [productedit]);
+
+    //read the form data
+    const onChangeForm = e => {
+        saveProduct({
+            ...product,
+            [e.target.name] : e.target.value
+        });
+    }
+
 
     const { name, price, id } = product;
 
@@ -38,6 +57,7 @@ const EditProduct = () => {
                                     placeholder="Product Name"
                                     name="name"
                                     value={name}
+                                    onChange={ onChangeForm }
                                 />    
                             </div>
 
@@ -49,6 +69,7 @@ const EditProduct = () => {
                                     placeholder="Product Price"
                                     name="price"
                                     value={price}
+                                    onChange={ onChangeForm }
                                 />    
                             </div>
 
