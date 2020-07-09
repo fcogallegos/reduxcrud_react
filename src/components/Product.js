@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 //Redux
@@ -10,6 +10,7 @@ const Product = ({product}) => {
     const { name, price, id } = product;
 
     const dispatch = useDispatch();
+    const history = useHistory(); //enable history for redirect
 
     //confirm if want remove it
     const confirmRemoveProduct = id => {
@@ -31,14 +32,21 @@ const Product = ({product}) => {
           });
     }
 
+    //function that redirect of program form
+    const redirectEdition = product => {
+        history.push(`/products/edit/${product.id}`)
+    }
+
     return ( 
         <tr>
             <td>{name}</td>
             <td><span className="font-weight-bold">$ {price} </span></td>
             <td className="acciones">
-                <Link to={`/products/edit/${id}`} className="btn btn-primary mr-2">
-                    Edit
-                </Link>
+                <button 
+                    type="button"
+                    onClick={ () => redirectEdition(product) } 
+                    className="btn btn-primary mr-2"
+                >Edit</button>
                 <button 
                     type="button"
                     className="btn btn-danger"
