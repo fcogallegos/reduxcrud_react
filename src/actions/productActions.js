@@ -4,7 +4,10 @@ import {
     ADD_PRODUCT_ERROR,
     START_DOWNLOAD_PRODUCTS,
     DOWNLOAD_PRODUCTS_SUCCESS,
-    DOWNLOAD_PRODUCTS_ERROR
+    DOWNLOAD_PRODUCTS_ERROR,
+    GET_PRODUCT_REMOVE,
+    PRODUCT_REMOVED_SUCCESS,
+    PRODUCT_REMOVED_ERROR
 } from '../types';
 
 import clientAxios from '../config/axios';
@@ -90,4 +93,18 @@ const downloadProductsSuccess = products => ({
 const downloadProductsError = () => ({
     type: DOWNLOAD_PRODUCTS_ERROR,
     payload: true
+});
+
+//select and remove the product
+export function removeProductAction(id) {
+    return async (dispatch) => {
+        dispatch( getProductRemove(id) );
+
+
+    }
+}
+
+const getProductRemove = id => ({
+    type: GET_PRODUCT_REMOVE,
+    payload: id
 });

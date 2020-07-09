@@ -4,14 +4,18 @@ import {
     ADD_PRODUCT_ERROR,
     START_DOWNLOAD_PRODUCTS,
     DOWNLOAD_PRODUCTS_SUCCESS,
-    DOWNLOAD_PRODUCTS_ERROR
+    DOWNLOAD_PRODUCTS_ERROR,
+    GET_PRODUCT_REMOVE,
+    PRODUCT_REMOVED_SUCCESS,
+    PRODUCT_REMOVED_ERROR
 } from '../types';
 
 // every Reducer has its own state
 const initialState = {
     products: [],
     error: null,
-    loading: false
+    loading: false,
+    deleteproduct: null
 }
 
 export default function(state = initialState, action) {
@@ -42,7 +46,11 @@ export default function(state = initialState, action) {
                 error: null,
                 products: action.payload
             }
-                
+        case GET_PRODUCT_REMOVE:
+            return {
+                ...state,
+                deleteproduct: action.payload
+            }        
         default: 
             return state;
     }
