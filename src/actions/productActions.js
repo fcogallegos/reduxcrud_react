@@ -100,11 +100,25 @@ export function removeProductAction(id) {
     return async (dispatch) => {
         dispatch( getProductRemove(id) );
 
-
+        try {
+            await clientAxios.delete(`/products/${id}`);
+            dispatch( removeProductSuccess() );
+        } catch (error) {
+            
+        }
     }
 }
 
 const getProductRemove = id => ({
     type: GET_PRODUCT_REMOVE,
     payload: id
+});
+
+const removeProductSuccess = () => ({
+    type: PRODUCT_REMOVED_SUCCESS
+});
+
+const removeProductError = () => ({
+    type: PRODUCT_REMOVED_ERROR,
+    payload: true
 });
