@@ -7,7 +7,7 @@
     },
     {
       "name": "Jugo de Fresa",
-      "price": "200",
+      "price": "120",
       "id": 5
     },
     {
@@ -16,9 +16,14 @@
       "id": 7
     },
     {
-      "name": "Juice of carrot",
-      "price": 80,
-      "id": 9
+      "name": "Cap",
+      "price": 1200,
+      "id": 10
+    },
+    {
+      "name": "Headphones",
+      "price": 800,
+      "id": 11
     }
   ]
 }
